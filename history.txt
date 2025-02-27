@@ -1,0 +1,25 @@
+1. CREATE ITEM CLASS
+
+puts item
+item.checked = true
+puts item
+item = Item.new("Limon")
+puts item
+item = Item.new
+require "./item.rb"
+
+2. CREATE LIST CLASS
+
+list.show_all
+list.remove_all
+list.show_all
+list.remove_item(1)
+list.remove_item
+list.show_all
+list.check_item(1)
+list.show_all
+list.add_item("Eggs")
+list.show_all
+list.add_item("Limon")
+list = List.new
+require "./list.rb"
