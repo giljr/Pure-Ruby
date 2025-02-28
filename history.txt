@@ -1,25 +1,72 @@
-1. CREATE ITEM CLASS
+1. TEST CREATE ITEM CLASS
 
-puts item
-item.checked = true
+require "./item.rb"
+item = Item.new
 puts item
 item = Item.new("Limon")
 puts item
-item = Item.new
-require "./item.rb"
+item.checked = true
+puts item
 
-2. CREATE LIST CLASS
 
-list.show_all
-list.remove_all
-list.show_all
-list.remove_item(1)
-list.remove_item
-list.show_all
-list.check_item(1)
+2. TEST CREATE LIST CLASS
+
+require "./list.rb"
+list = List.new
+list.add_item("Limon")
 list.show_all
 list.add_item("Eggs")
 list.show_all
-list.add_item("Limon")
-list = List.new
-require "./list.rb"
+list.check_item(1)
+list.show_all
+list.remove_item
+list.remove_item(1)
+list.show_all
+list.remove_all
+list.show_all
+
+3. MAP, REDUCE, and SELECT
+
+Map:
+def f(x) x*x end
+out_array = [1,2,3,4,5].map do |n| f(n) end
+out_array = [1,2,3,4,5].map { |n| n*n }
+out_array = [1,2,3,4,5].map { |n| [n, n*n] }
+out_array = [1,2,3,4,5].map do |n| n*n end.map do |s| s+100 end
+
+REDUCE:
+[1,2,3,4,5].reduce(0,:+)
+----------------------------
+[1,2,3,4,5].reduce(33) do |memo, elem| memo.+(elem) end
+----------------------------
+[1,2,3,4,5].reduce(33) do |memo, elem|
+   memo.+(elem)
+   77.7  # Always returns 77.7
+end
+----------------------------
+[1,2,3,4,5].reduce({}) do |memo, elem|
+   memo[elem] = elem.to_s
+   memo
+end
+----------------------------
+[1,2,3,4,5].reduce(1,:*)
+----------------------------
+ini_memo = [nil, nil]
+
+last_2=(1..10).reduce(ini_memo) do |memo, elem|
+   ini_memo.push(elem)
+   ini_memo.shift
+   ini_memo
+end
+----------------------------
+sequence = [1,2,3,455,5,6,4,3,45,66,77,54,23,4,55,6,7]
+----------------------------
+SELECT:
+sequence.reduce([nil,nil,nil,nil,nil]) do |memo, n|
+   memo.push(n)
+   memo.shift
+   memo
+end.select do |odds_of_last_5|
+   odds_of_last_5 %2 == 1
+end
+----------------------------

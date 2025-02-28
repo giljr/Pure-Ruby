@@ -1,12 +1,16 @@
 ## Pure Ruby Lessons – Udemy Course
 
+### Here's the Tutorials:
+
+[0](https://medium.com/jungletronics/map-reduce-select-in-ruby-b6d66561e1bb) — 1 — 2 — 3 — 4 — 5 — 6 — 7 — 8 — 9 — 10
+
 Welcome to Pure Ruby Lessons, a comprehensive Udemy course designed to teach you the fundamentals of Ruby programming from scratch. Whether you're a beginner or looking to refine your skills, this course provides hands-on experience with Ruby's core concepts, syntax, and best practices.
 
 📌 Course Overview
 
 This course covers a wide range of Ruby topics, including:
 
-    Basic Syntax & Data Types
+    Basic Syntax & Data Types & Map / Reduce / Select
 
     Control Structures (Loops & Conditionals)
 
