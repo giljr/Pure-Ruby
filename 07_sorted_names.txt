@@ -1,0 +1,33 @@
+Sorted names: 
+ 
+ Hafaz Aladeen
+ Azamat Bagatov
+ Ramachandran Balasubrahmaniam
+ Canaan Banana
+ Wilfredo Caguiat
+ Thierry Giscard
+ Ion Iliescu
+ Eriks Ivanans
+ Werner Klempner
+ Ping Li
+ John Smith
+ Joao Soares
+
+First Solution:
+
+namelist = File.open("05_names.txt", "r").read.split("\n") # Read names from file
+namelist
+  .map { |fullname| [fullname.split(" ")[1] || fullname, fullname] } # Extract last name, fallback to full name
+  .sort_by { |last_name, _| last_name } # Sort by last name
+  .map { |_, fullname| fullname } # Keep only the full name
+  .join("\n") # Join names into a string
+
+
+Second Solution:
+
+File.open("05_names.txt", "r").read.split("\n")
+   .map { |fullname| fullname.split(" ", 2) } # Split into first and last name but keep full name intact
+   .map { |first, last| [last || first, first, last].compact } # Ensure last name exists, fallback to first
+   .sort_by { |last, _, _| last } # Sort by last name
+   .map { |_, first, last| [first, last].compact.join(" ") } # Reconstruct full names after sorting
+   .join("\n") # Join names into a single string
